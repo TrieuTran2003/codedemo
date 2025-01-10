@@ -1,6 +1,6 @@
 const { MongoClient, ObjectId } = require('mongodb');
 
-const url = 'mongodb+srv://tranductrieu12an3nh2021:<db_password>@cluster0.c7dlp.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
+const url = 'mongodb+srv://tranductrieu12an3nh2021:<db_password>@cluster0.c7dlp.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0&tlsAllowInvalidCertificates=true';
 const dbName = 'BaoChay';
 let db;
 
