@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-Time Sensor Data</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns"></script>
+</head>
+<body>
+    <h1>Real-Time Sensor Data</h1>
+    <table>
+        <tr>
+            <th>Last Update Time</th>
+            <th>Smoke Value</th>
+            <th>Fire Value</th>
+            <th>Pump State</th>
+            <th>Buzzer State</th>
+        </tr>
+        <tr>
+            <td id="lastUpdateTime"><%= sensorData.lastUpdateTime %></td>
+            <td id="smokeValue" class="circle"><%= sensorData.smoke_value %></td>
+            <td id="fireValue" class="circle"><%= sensorData.fire_value %></td>
+            <td id="pumpState" class="circle"><%= sensorData.pump_state ? 'On' : 'Off' %></td>
+            <td id="buzzerState" class="circle"><%= sensorData.buzzer_state ? 'On' : 'Off' %></td>
+        </tr>
+    </table>
+    <h2>Real-Time Sensor Chart</h2>
+    <div class="canva-wrap" style="height: 450px; width: 75%; margin: 0 auto;">
+        <canvas id="sensorChart" width="400" height="200"></canvas>
+    </div>
+    <h2>Sensor Data History</h2>
+    <%- include('partials/databaseTable', { sensorDataList: sensorDataList, totalPages: totalPages }) %>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/main.js"></script>
+</body>
+</html>
